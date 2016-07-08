@@ -1,0 +1,7 @@
+bin/
+obj/
+*.lock.json
+*.xproj
+*.user
+*.sln
+.vs
