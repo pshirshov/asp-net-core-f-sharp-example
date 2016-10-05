@@ -5,6 +5,7 @@ open Microsoft.AspNetCore.Hosting
 open Microsoft.AspNetCore.Http
 open Microsoft.Extensions.Configuration
 open Microsoft.Extensions.Configuration.CommandLine
+open Microsoft.Extensions.Configuration.EnvironmentVariables
 
 
 type Startup() =
@@ -14,7 +15,7 @@ type Startup() =
 
 [<EntryPoint>]
 let main argv =
-    let config = ConfigurationBuilder().AddCommandLine(argv).Build()
+    let config = ConfigurationBuilder().AddCommandLine(argv).AddEnvironmentVariables().Build()
     let host = WebHostBuilder().UseKestrel().UseConfiguration(config).UseStartup<Startup>().Build()
     host.Run()
     printfn "Server finished!"
