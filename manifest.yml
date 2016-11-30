@@ -1,0 +1,9 @@
+---
+applications:
+- name: fsharp-demo
+  memory: 1512M
+  disk: 2G
+  buildpack: https://github.com/cloudfoundry-incubator/dotnet-core-buildpack.git
+  command: dotnet run --server.urls=http://0.0.0.0:$PORT
+env:
+  CF_TRACE: true
